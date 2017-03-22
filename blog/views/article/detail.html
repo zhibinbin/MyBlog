@@ -1,0 +1,32 @@
+<%-include ../include/header.html%>
+<div class="media col-md-12">
+    <div class="media-left" style="padding-right: 50px">
+        <%if(article.poster){%>
+        <img style="width: 500px;height: 350px" src="<%=article.poster%>" alt=""/>
+        <%}%>
+    </div>
+    <div class="media-body" style="padding: 20px">
+        <div class="col-md-12" style="padding-left: 0px;padding-bottom: 20px">
+            <a href="#" style="float: left">
+                <img class="media-object" src="<%=article.user.avatar%>" alt="...">
+            </a>
+            <a href="/article/detail/<%=article.id%>"><h2 style="float: left;" class="media-heading"><%=article.title%></h2></a>
+        </div>
+        <div>
+            <p><%-article.content%></p>
+        </div>
+        <div class="media-bottom" style="position: relative;top: 200px">
+            <span>作者：<%=article.user.username%></span>
+            |
+            <span>时间：<%=article.createAt.toLocaleString()%></span>
+        </div>
+    </div>
+    <div style="margin-top: 50px">
+        <a type="button" class="btn btn-primary" href="/article/edit/<%=article.id%>">编辑</a>
+        <a type="button" class="btn btn-danger" href="/article/remove/<%=article.id%>">删除</a>
+    </div>
+</div>
+
+
+
+<%-include ../include/footer.html%>
